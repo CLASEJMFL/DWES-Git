@@ -1,0 +1,145 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+header {
+    background-color: #263b50;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #263b50;
+}
+
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.producto {
+    background-color: white;
+    width: 210px;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px #ccc;
+}
+
+.producto img {
+    width: 100%;
+    height: 140px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.producto h3 {
+    margin-bottom: 10px;
+}
+
+.producto p {
+    margin-bottom: 10px;
+}
+
+.precio {
+    color: #168447;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+button {
+    background-color: #168447;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #106536;
+}
+
+.carrito {
+    background-color: white;
+    margin-top: 40px;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px #ccc;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #263b50;
+    color: white;
+}
+
+.eliminar {
+    background-color: #d93636;
+}
+
+.eliminar:hover {
+    background-color: #a82020;
+}
+
+.total {
+    text-align: right;
+    margin-top: 20px;
+    color: #168447;
+    font-size: 22px;
+}
+
+footer {
+    background-color: #263b50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+
+    .producto {
+        width: 100%;
+    }
+}
