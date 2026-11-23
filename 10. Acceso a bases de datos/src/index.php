@@ -12,7 +12,7 @@
         <li><a href="Ejercicio1-2/index.php">Ejercicio 1-2</a></li>
         <li><a href="Ejercicio3/index.php">Ejercicio 3</a></li>
         <li><a href="Ejercicio4-5/index.php">Ejercicio 4-5</a></li>
-        <li><a href="Ejercicio5/index.php">Ejercicio 5</a></li>
+        <li><a href="Ejercicio6/index.php">Ejercicio 6</a></li>
         <li><a href="Ejercicio7/index.php">Ejercicio 7</a></li>
     </ul>
 </body>

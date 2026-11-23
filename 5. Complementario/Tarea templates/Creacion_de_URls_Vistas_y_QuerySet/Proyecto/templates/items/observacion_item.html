@@ -1,0 +1,6 @@
+{% if texto|lower in asignacion.observaciones|lower %}
+    <p>
+        <strong>Usuario:</strong> {{ asignacion.usuario.nombre }}<br>
+        <strong>Observaciones:</strong> {{ asignacion.observaciones|capfirst }}
+    </p>
+{% endif %}

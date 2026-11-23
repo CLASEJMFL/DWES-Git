@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block cabecera %}
+    <h1>Usuarios que no están asignados a ninguna tarea</h1>
+{% endblock %}
+
+{% block contenido %}
+    {% if usuarios %}
+        <ul class="lista-simple">
+            {% for usuario in usuarios %}
+                <li class="{% cycle 'fila-impar' 'fila-par' %}">
+                    {% include "items/usuario_item.html" %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="vacio">Todos los usuarios están asignados a alguna tarea.</p>
+    {% endif %}
+{% endblock %}

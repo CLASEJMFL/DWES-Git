@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block cabecera %}
+    <h1>Error 404 - Página no encontrada</h1>
+{% endblock %}
+
+{% block contenido %}
+    <p class="vacio">La página que buscas no existe o ha sido movida.</p>
+    <a class="volver" href="{% url 'inicio' %}">Volver al inicio</a>
+{% endblock %}

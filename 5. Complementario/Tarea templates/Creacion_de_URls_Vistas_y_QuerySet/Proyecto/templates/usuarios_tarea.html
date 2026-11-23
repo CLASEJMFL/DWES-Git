@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block cabecera %}
+    <h1>Usuarios asignados a la tarea: {{ tarea }}</h1>
+    {% if tarea.proyecto is not None %}
+        <p>Proyecto: {{ tarea.proyecto.nombre }}</p>
+    {% endif %}
+{% endblock %}
+
+{% block contenido %}
+    {% for asignacion in asignaciones %}
+        {% include "items/asignacion_item.html" %}
+    {% empty %}
+        <p class="vacio">No hay usuarios asignados a esta tarea.</p>
+    {% endfor %}
+{% endblock %}

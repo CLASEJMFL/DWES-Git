@@ -1,0 +1,6 @@
+<strong>#{{ etiqueta.nombre|lower }}</strong>
+{% if etiqueta.nombre|length <= 5 %}
+    <small>(etiqueta corta)</small>
+{% endif %}
+&middot; inicial: {{ etiqueta.nombre|first|upper }}
+&middot; usada en {{ etiqueta.tareas.count }} tarea{{ etiqueta.tareas.count|pluralize }}

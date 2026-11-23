@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block cabecera %}
+    <h1>Último usuario que comentó</h1>
+    <p>Proyecto: {{ proyecto.nombre }}</p>
+{% endblock %}
+
+{% block contenido %}
+    {% if ultimo_comentario is None %}
+        <p class="vacio">Este proyecto todavía no tiene comentarios.</p>
+    {% else %}
+        <article class="tarjeta">
+            <p><strong>Usuario:</strong> {{ ultimo_comentario.usuario.nombre }}</p>
+            <p><strong>Correo:</strong> {{ ultimo_comentario.usuario.correo|lower }}</p>
+            <p><strong>Tarea:</strong> {{ ultimo_comentario.tarea.nombre }}</p>
+            <p><strong>Comentario:</strong> {{ ultimo_comentario.texto|linebreaksbr }}</p>
+            <p>
+                <strong>Fecha:</strong>
+                {{ ultimo_comentario.fecha_comentario|date:"d/m/Y H:i" }}
+                (hace {{ ultimo_comentario.fecha_comentario|timesince }})
+            </p>
+        </article>
+    {% endif %}
+{% endblock %}

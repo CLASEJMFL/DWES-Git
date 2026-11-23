@@ -1,0 +1,32 @@
+<article class="tarjeta {% if forloop.counter|divisibleby:2 %}fila-par{% endif %}">
+    <h2>{{ forloop.counter }}. {{ proyecto.nombre|title }}</h2>
+
+    <p>{{ proyecto.descripcion|truncatewords:15|default:"Sin descripción" }}</p>
+
+    <p>
+        <small>
+            Compañía: {{ proyecto.compania.nombre|upper }} &middot;
+            Creado el {{ proyecto.fecha_creacion|date:"d/m/Y" }}
+            (hace {{ proyecto.fecha_creacion|timesince }})
+        </small>
+    </p>
+
+    {% with total=proyecto.tareas.count %}
+        <p>
+            {{ total }} tarea{{ total|pluralize }}
+            {% if total == 0 %}
+                <span class="aviso">¡Proyecto sin tareas!</span>
+            {% elif total < 3 %}
+                <span>(proyecto pequeño)</span>
+            {% else %}
+                <span>(proyecto en marcha)</span>
+            {% endif %}
+        </p>
+    {% endwith %}
+
+    <p>
+        <a href="{% url 'tareas_proyecto' proyecto.id %}">Ver tareas</a> |
+        <a href="{% url 'etiquetas_proyecto' proyecto.id %}">Ver etiquetas</a> |
+        <a href="{% url 'ultimo_usuario_comentario' proyecto.id %}">Último comentario</a>
+    </p>
+</article>

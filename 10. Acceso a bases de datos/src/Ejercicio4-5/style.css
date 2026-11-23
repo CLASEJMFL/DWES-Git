@@ -1,4 +1,4 @@
-
+/* ESTILOS GENERALES */
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +11,7 @@ body {
     color: #333;
 }
 
+/* CABECERA */
 header {
     background: #243b55;
     color: white;
@@ -22,6 +23,7 @@ header h1 {
     margin-bottom: 8px;
 }
 
+/* CONTENIDO PRINCIPAL */
 main {
     max-width: 1100px;
     margin: 35px auto;
@@ -30,17 +32,20 @@ main {
     border-radius: 10px;
 }
 
+/* TITULOS */
 h2 {
     margin-bottom: 25px;
     color: #243b55;
 }
 
+/* TABLA */
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
     padding: 14px;
     text-align: left;
     border-bottom: 1px solid #ddd;
@@ -55,20 +60,16 @@ tr:hover {
     background: #f1f5f9;
 }
 
-@media (max-width: 700px) {
-    main {
-        margin: 15px;
-        padding: 12px;
-        overflow-x: auto;
-    }
-
-    table {
-        min-width: 650px;
-    }
+/* MENSAJES */
+.mensaje {
+    margin-bottom: 15px;
+    padding: 12px;
+    background-color: #e0f2fe;
+    color: #075985;
+    border-radius: 5px;
 }
 
-
-/* Estilos generales de los botones */
+/* BOTONES GENERALES */
 button {
     background-color: #2563eb;
     color: white;
@@ -79,12 +80,43 @@ button {
     font-size: 14px;
 }
 
-/* Efecto al pasar el ratón */
+/* BOTON MODIFICAR - NARANJA */
+a.btn-modificar {
+    display: inline-block;
+    background-color: #f59e0b;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.btn-modificar:hover {
+    background-color: #d97706;
+    color: white;
+    text-decoration: none;
+}
+
+/* BOTON ELIMINAR - ROJO */
+button.btn-eliminar {
+    background-color: #dc2626;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.btn-eliminar:hover {
+    background-color: #b91c1c;
+}
+
+/* HOVER BOTONES GENERALES */
 button:hover {
     background-color: #1d4ed8;
 }
 
-/* Enlaces con apariencia de botón */
+/* ENLACES */
 a {
     color: #2563eb;
     text-decoration: none;
@@ -92,4 +124,201 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+/* ACCIONES DE LA TABLA */
+.acciones {
+    white-space: nowrap;
+}
+
+/* DISEÑO RESPONSIVE */
+@media (max-width: 700px) {
+
+    main {
+        margin: 15px;
+        padding: 12px;
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 650px;
+    }
+
+}
+
+
+/* =================================
+   COLORES DEFINITIVOS DE LOS BOTONES
+   ================================= */
+
+/* MODIFICAR - NARANJA */
+a.btn-modificar,
+a.btn-modificar:link,
+a.btn-modificar:visited {
+    background-color: #f59e0b !important;
+    color: white !important;
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 5px;
+    text-decoration: none !important;
+    border: none;
+}
+
+a.btn-modificar:hover {
+    background-color: #d97706 !important;
+    color: white !important;
+}
+
+/* ELIMINAR - ROJO */
+button.btn-eliminar {
+    background-color: #dc2626 !important;
+    color: white !important;
+    padding: 10px 18px;
+    border: none !important;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.btn-eliminar:hover {
+    background-color: #b91c1c !important;
+    color: white !important;
+}
+
+
+/* =====================================
+   FORMULARIO DE ALTA Y MODIFICACION
+   ===================================== */
+
+.formulario-contenedor {
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 35px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.formulario-cabecera {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.formulario-cabecera h2 {
+    margin-bottom: 10px;
+    color: #243b55;
+}
+
+.formulario-cabecera p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* CAMPOS DEL FORMULARIO */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.campo label {
+    font-weight: bold;
+    color: #243b55;
+    font-size: 14px;
+}
+
+.campo input {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.campo input::placeholder {
+    color: #aaa;
+}
+
+/* BOTONES DEL FORMULARIO */
+.botones-formulario {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.btn-guardar {
+    flex: 1;
+    background-color: #2563eb;
+    color: white;
+    padding: 13px 18px;
+    border: none;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-guardar:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-volver {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 18px;
+    background-color: #e5e7eb;
+    color: #243b55;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn-volver:hover {
+    background-color: #d1d5db;
+    text-decoration: none;
+    color: #243b55;
+}
+
+/* MENSAJES */
+.mensaje {
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    background-color: #e0f2fe;
+    color: #075985;
+    border-radius: 7px;
+}
+
+/* ADAPTACION A MOVILES */
+@media (max-width: 700px) {
+
+    .formulario-contenedor {
+        margin: 20px 15px;
+        padding: 22px;
+    }
+
+    .botones-formulario {
+        flex-direction: column;
+    }
+
+    .btn-guardar,
+    .btn-volver {
+        width: 100%;
+        text-align: center;
+    }
 }

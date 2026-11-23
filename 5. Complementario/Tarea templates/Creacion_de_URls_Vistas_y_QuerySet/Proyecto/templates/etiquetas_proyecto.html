@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block cabecera %}
+    <h1>Etiquetas del proyecto: {{ proyecto.nombre }}</h1>
+{% endblock %}
+
+{% block contenido %}
+    {% if etiquetas %}
+        <ul class="lista-simple">
+            {% for etiqueta in etiquetas %}
+                <li class="{% cycle 'fila-impar' 'fila-par' %}">
+                    {% include "items/etiqueta_item.html" %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="vacio">Este proyecto no tiene etiquetas utilizadas en sus tareas.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,6 @@
+<article class="tarjeta {% if forloop.counter|divisibleby:2 %}fila-par{% endif %}">
+    <h2>{{ asignacion.usuario.nombre }}</h2>
+    <p>Correo: {{ asignacion.usuario.correo|lower }}</p>
+    <p>Fecha de asignación: {{ asignacion.fecha_asignacion|date:"j \d\e F \d\e Y" }}</p>
+    <p>Observaciones: {% firstof asignacion.observaciones "Sin observaciones" %}</p>
+</article>

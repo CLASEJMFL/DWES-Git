@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block cabecera %}
+    <h1>Todos los proyectos</h1>
+    <p>Hay {{ proyectos|length }} proyecto{{ proyectos|length|pluralize }} registrado{{ proyectos|length|pluralize }}.</p>
+{% endblock %}
+
+{% block contenido %}
+    {% if proyectos|length >= 10 %}
+        <p class="aviso">Hay muchos proyectos, revisa la lista con calma.</p>
+    {% endif %}
+
+    {% for proyecto in proyectos %}
+        {% include "items/proyecto_item.html" %}
+    {% empty %}
+        <p class="vacio">No hay proyectos registrados.</p>
+    {% endfor %}
+{% endblock %}

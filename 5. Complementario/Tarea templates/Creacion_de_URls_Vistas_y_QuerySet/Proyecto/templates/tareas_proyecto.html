@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block cabecera %}
+    <h1>Tareas del proyecto: {{ proyecto.nombre }}</h1>
+    <p>Ordenadas de la más reciente a la más antigua.</p>
+{% endblock %}
+
+{% block contenido %}
+    {% for tarea in tareas %}
+        {% include "items/tarea_item.html" %}
+    {% empty %}
+        <p class="vacio">Este proyecto no tiene tareas.</p>
+    {% endfor %}
+{% endblock %}

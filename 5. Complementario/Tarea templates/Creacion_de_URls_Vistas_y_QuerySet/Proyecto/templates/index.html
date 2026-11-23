@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block cabecera %}
+    <h1>Gestión de proyectos</h1>
+    <p>
+        Bienvenido, {% firstof user.get_username "invitado" %}.
+        Hoy es {% now "l, j \d\e F \d\e Y" %}.
+    </p>
+{% endblock %}
+
+{% block contenido %}
+    {% comment %}
+        La lista de modelos es informativa; los enlaces de los ejercicios
+        usan {% url %} para no escribir las rutas a mano.
+    {% endcomment %}
+
+    <h2>Modelos de la aplicación</h2>
+    <ul class="lista-simple">
+        <li><a href="/admin/">Administración de Django</a></li>
+        <li>Compañías</li>
+        <li>Administradores</li>
+        <li>Usuarios</li>
+        <li>Proyectos</li>
+        <li>Tareas</li>
+        <li>Asignaciones de tareas</li>
+        <li>Comentarios</li>
+        <li>Etiquetas</li>
+    </ul>
+
+    <h2>Ejercicios de consultas</h2>
+    <ul class="lista-simple">
+        <li><a href="{% url 'proyectos' %}">2. Listar todos los proyectos</a></li>
+        <li><a href="{% url 'tareas_proyecto' 1 %}">3. Tareas de un proyecto</a></li>
+        <li><a href="{% url 'usuarios_tarea' 1 %}">4. Usuarios asignados a una tarea</a></li>
+        <li><a href="{% url 'tareas_por_observacion' 'urgente' %}">5. Buscar tareas por observaciones</a></li>
+        <li><a href="{% url 'tareas_completadas_por_anio' 2023 2026 %}">6. Tareas completadas entre dos años</a></li>
+        <li><a href="{% url 'ultimo_usuario_comentario' 1 %}">7. Último usuario que comentó en un proyecto</a></li>
+        <li><a href="{% url 'comentarios_por_palabra_y_anio' 1 'La' 2026 %}">8. Comentarios por palabra y año</a></li>
+        <li><a href="{% url 'etiquetas_proyecto' 1 %}">9. Etiquetas de un proyecto</a></li>
+        <li><a href="{% url 'usuarios_sin_tareas' %}">10. Usuarios sin tareas asignadas</a></li>
+    </ul>
+{% endblock %}

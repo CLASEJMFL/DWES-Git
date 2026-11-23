@@ -1,0 +1,17 @@
+<article class="tarjeta {% if forloop.counter|divisibleby:2 %}fila-par{% endif %}">
+    <p><strong>Usuario:</strong> {{ comentario.usuario.nombre }}</p>
+
+    <p>
+        <strong>Comentario:</strong> {{ comentario.texto|capfirst }}
+        {% if "urgente" in comentario.texto|lower %}
+            <span class="aviso">¡Urgente!</span>
+        {% endif %}
+    </p>
+
+    <p>
+        <small>
+            Fecha: {{ comentario.fecha_comentario|date:"d/m/Y H:i" }}
+            &middot; {{ comentario.texto|wordcount }} palabra{{ comentario.texto|wordcount|pluralize }}
+        </small>
+    </p>
+</article>

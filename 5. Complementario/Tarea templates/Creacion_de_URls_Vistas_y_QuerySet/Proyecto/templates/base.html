@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de proyectos</title>
+
+    {# Archivo CSS e imagen (favicon) #}
+    <link rel="stylesheet" href="{% static 'Proyecto/css/estilos.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'Proyecto/img/logo.png' %}">
+</head>
+<body>
+
+    {# Menú de navegación superior #}
+    {% include "partials/navbar.html" %}
+
+    {# Block 1: cabecera de cada página (con la imagen del logo) #}
+    <header class="cabecera">
+        <img class="logo-cabecera" src="{% static 'Proyecto/img/logo.png' %}" alt="Logo de Gestión de proyectos">
+        <div>
+            {% block cabecera %}{% endblock %}
+        </div>
+    </header>
+
+    {% if request.path != '/' %}
+        <div class="migas"><a href="{% url 'inicio' %}">&larr; Volver al inicio</a></div>
+    {% endif %}
+
+    {# Block 2: contenido de cada página #}
+    <main class="contenido">
+        {% block contenido %}{% endblock %}
+    </main>
+
+    {# Pie de página #}
+    {% include "partials/footer.html" %}
+
+    <button id="subir" type="button" title="Volver arriba">&uarr;</button>
+
+    {# Archivo JavaScript #}
+    <script src="{% static 'Proyecto/js/main.js' %}"></script>
+</body>
+</html>

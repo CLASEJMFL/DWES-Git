@@ -1,0 +1,13 @@
+<nav class="navbar">
+    <a class="marca" href="{% url 'inicio' %}">Gestión de proyectos</a>
+
+    <ul>
+        <li><a class="enlace" href="{% url 'inicio' %}">Inicio</a></li>
+        <li><a class="enlace" href="{% url 'proyectos' %}">Proyectos</a></li>
+        <li><a class="enlace" href="{% url 'tareas_proyecto' 1 %}">Tareas</a></li>
+        <li><a class="enlace" href="{% url 'tareas_completadas_por_anio' 2023 2026 %}">Completadas</a></li>
+        <li><a class="enlace" href="{% url 'etiquetas_proyecto' 1 %}">Etiquetas</a></li>
+        <li><a class="enlace" href="{% url 'usuarios_sin_tareas' %}">Usuarios sin tareas</a></li>
+        <li><a class="enlace" href="/admin/">Administración</a></li>
+    </ul>
+</nav>

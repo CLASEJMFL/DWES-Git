@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block cabecera %}
+    <h1>Error 500 - Error interno del servidor</h1>
+{% endblock %}
+
+{% block contenido %}
+    <p class="vacio">Ha ocurrido un error inesperado. Inténtalo de nuevo más tarde.</p>
+    <a class="volver" href="{% url 'inicio' %}">Volver al inicio</a>
+{% endblock %}

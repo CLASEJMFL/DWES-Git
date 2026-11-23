@@ -1,11 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GESTISIMAL - Almacén</title>
+    <title>GESTISIMAL - Listado de artículos</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -21,12 +21,14 @@
         <h2>Listado de artículos</h2>
 
         <?php if (!empty($mensaje)): ?>
-            <p><?= htmlspecialchars($mensaje) ?></p>
+            <p class="mensaje">
+                <?= htmlspecialchars($mensaje) ?>
+            </p>
         <?php endif; ?>
 
-        <p>
-            <a href="index.php?accion=alta">Añadir nuevo artículo</a>
-        </p>
+        <a href="index.php?accion=alta">
+            Añadir nuevo artículo
+        </a>
 
         <table>
 
@@ -48,46 +50,57 @@
                     <?php foreach ($articulos as $articulo): ?>
 
                         <tr>
-                            <td><?= htmlspecialchars($articulo["codigo"]) ?></td>
-
-                            <td><?= htmlspecialchars($articulo["descripcion"]) ?></td>
 
                             <td>
-                                <?= number_format($articulo["precio_compra"], 2, ",", ".") ?> €
+                                <?= htmlspecialchars($articulo['codigo']) ?>
                             </td>
 
                             <td>
-                                <?= number_format($articulo["precio_venta"], 2, ",", ".") ?> €
+                                <?= htmlspecialchars($articulo['descripcion']) ?>
                             </td>
 
-                            <td><?= htmlspecialchars($articulo["stock"]) ?></td>
+                            <td>
+                                <?= number_format($articulo['precio_compra'], 2, ',', '.') ?> €
+                            </td>
 
                             <td>
+                                <?= number_format($articulo['precio_venta'], 2, ',', '.') ?> €
+                            </td>
 
-                                <a href="index.php?accion=modificar&codigo=<?= urlencode($articulo["codigo"]) ?>">
+                            <td>
+                                <?= htmlspecialchars($articulo['stock']) ?>
+                            </td>
+
+                            <td class="acciones">
+
+                                <!-- MODIFICAR -->
+                                <a href="index.php?accion=modificar&codigo=<?= urlencode($articulo['codigo']) ?>"
+                                    class="btn-modificar">
                                     Modificar
                                 </a>
 
-                                <form
-                                    action="index.php"
+                                <!-- ELIMINAR -->
+                                <form action="index.php"
                                     method="POST"
                                     style="display:inline;"
-                                    onsubmit="return confirm('¿Seguro que quieres eliminar este artículo?');"
-                                >
+                                    onsubmit="return confirm('¿Estás seguro de que quieres eliminar este artículo?');">
 
-                                    <input type="hidden" name="accion" value="eliminar">
+                                    <input type="hidden"
+                                        name="accion"
+                                        value="eliminar">
 
-                                    <input
-                                        type="hidden"
+                                    <input type="hidden"
                                         name="codigo"
-                                        value="<?= htmlspecialchars($articulo["codigo"], ENT_QUOTES, "UTF-8") ?>"
-                                    >
+                                        value="<?= htmlspecialchars($articulo['codigo']) ?>">
 
-                                    <button type="submit">Eliminar</button>
+                                    <button type="submit" class="btn-eliminar">
+                                        Eliminar
+                                    </button>
 
                                 </form>
 
                             </td>
+
                         </tr>
 
                     <?php endforeach; ?>
@@ -95,7 +108,9 @@
                 <?php else: ?>
 
                     <tr>
-                        <td colspan="6">No hay artículos en el almacén.</td>
+                        <td colspan="6">
+                            No hay artículos registrados.
+                        </td>
                     </tr>
 
                 <?php endif; ?>
@@ -107,4 +122,5 @@
     </main>
 
 </body>
+
 </html>

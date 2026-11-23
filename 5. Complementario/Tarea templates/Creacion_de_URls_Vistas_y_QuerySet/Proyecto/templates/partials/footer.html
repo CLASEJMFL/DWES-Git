@@ -1,0 +1,9 @@
+<footer class="pie">
+    <p>&copy; {% now "Y" %} Gestión de proyectos &middot; Proyecto Django</p>
+    <p>
+        <a href="{% url 'inicio' %}">Inicio</a> |
+        <a href="{% url 'proyectos' %}">Proyectos</a> |
+        <a href="{% url 'usuarios_sin_tareas' %}">Usuarios sin tareas</a>
+    </p>
+    <p><small>Última visita a esta página: {% now "d/m/Y H:i" %}</small></p>
+</footer>

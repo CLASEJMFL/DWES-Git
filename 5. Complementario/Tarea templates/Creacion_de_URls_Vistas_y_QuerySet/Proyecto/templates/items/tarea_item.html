@@ -1,0 +1,43 @@
+{% with estado_css=tarea.estado|slugify %}
+<article class="tarjeta estado-{{ estado_css }} {% if forloop.counter|divisibleby:2 %}fila-par{% endif %}">
+    <h2>
+        {{ tarea.nombre|capfirst }}
+        <span class="etiqueta-estado {{ estado_css }}">{{ tarea.estado }}</span>
+    </h2>
+
+    {% if tarea.descripcion and tarea.descripcion|length > 80 %}
+        <p>{{ tarea.descripcion|truncatechars:80 }}</p>
+    {% else %}
+        <p>{{ tarea.descripcion|linebreaksbr }}</p>
+    {% endif %}
+
+    {% if tarea.estado == "Completada" %}
+        <p>✔ Tarea terminada.</p>
+    {% elif tarea.estado == "Pendiente" or tarea.estado == "En progreso" %}
+        <p>⏳ Tarea todavía abierta.</p>
+    {% else %}
+        <p>Estado desconocido.</p>
+    {% endif %}
+
+    <p>
+        <small>
+            Fecha de creación: {{ tarea.fecha_creacion|date:"d/m/Y H:i" }}
+            {% if mostrar_proyecto %}
+                &middot; Proyecto: {{ tarea.proyecto.nombre }}
+            {% endif %}
+        </small>
+    </p>
+
+    <p>
+        Etiquetas:
+        {% if not tarea.etiquetas.exists %}
+            <em>ninguna</em>
+        {% else %}
+            {{ tarea.etiquetas.all|join:", " }}
+        {% endif %}
+        ({{ tarea.etiquetas.exists|yesno:"con etiquetas,sin etiquetas" }})
+    </p>
+
+    <p><a href="{% url 'usuarios_tarea' tarea.id %}">Ver usuarios asignados</a></p>
+</article>
+{% endwith %}

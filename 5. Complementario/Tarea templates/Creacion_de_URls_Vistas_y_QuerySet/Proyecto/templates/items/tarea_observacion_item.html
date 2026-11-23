@@ -1,0 +1,13 @@
+<article class="tarjeta {% if forloop.counter|divisibleby:2 %}fila-par{% endif %}">
+    <h2>{{ tarea.nombre }}</h2>
+    <p>{{ tarea.descripcion|truncatewords:20 }}</p>
+    <p>Estado: {{ tarea.estado }} &middot; Proyecto: {{ tarea.proyecto.nombre }}</p>
+
+    <h3>Observaciones de las asignaciones:</h3>
+
+    {% for asignacion in tarea.asignaciones.all %}
+        {% include "items/observacion_item.html" %}
+    {% empty %}
+        <p>Esta tarea no tiene asignaciones.</p>
+    {% endfor %}
+</article>

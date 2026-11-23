@@ -1,0 +1,11 @@
+<strong>{{ usuario.nombre }}</strong> &ndash;
+<a href="mailto:{{ usuario.correo }}">{{ usuario.correo }}</a>
+<br>
+<small>
+    DNI: {{ usuario.dni|cut:" "|upper }}
+    &middot; Nacido el {{ usuario.fecha_nacimiento|date:"d/m/Y" }}
+    ({{ usuario.fecha_nacimiento|timesince }})
+    {% if "@gmail.com" not in usuario.correo %}
+        &middot; correo no gmail
+    {% endif %}
+</small>

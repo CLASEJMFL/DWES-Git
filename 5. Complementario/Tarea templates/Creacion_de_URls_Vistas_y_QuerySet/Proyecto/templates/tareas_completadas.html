@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block cabecera %}
+    <h1>Tareas completadas entre {{ anio_inicio }} y {{ anio_fin }}</h1>
+    <p>{{ tareas|length }} tarea{{ tareas|length|pluralize }} encontrada{{ tareas|length|pluralize }}.</p>
+{% endblock %}
+
+{% block contenido %}
+    {% for tarea in tareas %}
+        {% ifchanged tarea.fecha_creacion.year %}
+            <h2>Año {{ tarea.fecha_creacion|date:"Y" }}</h2>
+        {% endifchanged %}
+
+        {% include "items/tarea_item.html" with mostrar_proyecto=True %}
+    {% empty %}
+        <p class="vacio">No hay tareas completadas en ese intervalo de años.</p>
+    {% endfor %}
+{% endblock %}

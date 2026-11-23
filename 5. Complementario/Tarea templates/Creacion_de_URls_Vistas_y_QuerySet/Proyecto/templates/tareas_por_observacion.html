@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block cabecera %}
+    <h1>Tareas que contienen "{{ texto }}" en sus observaciones</h1>
+{% endblock %}
+
+{% block contenido %}
+    {% for tarea in tareas %}
+        {% include "items/tarea_observacion_item.html" %}
+    {% empty %}
+        <p class="vacio">No se han encontrado tareas con ese texto en las observaciones.</p>
+    {% endfor %}
+{% endblock %}

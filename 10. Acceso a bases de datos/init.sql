@@ -105,3 +105,26 @@ INSERT IGNORE INTO horario
 ('Miércoles', 'Historia', 'Física', 'Matemáticas', 'Educación Física', 'Lengua', 'Inglés'),
 ('Jueves', 'Inglés', 'Química', 'Biología', 'Matemáticas', 'Filosofía', 'Historia'),
 ('Viernes', 'Lengua', 'Historia', 'Física', 'Inglés', 'Biología', 'Matemáticas');
+
+-- =====================================================
+-- TABLA TIENDA - EJERCICIO 7
+-- =====================================================
+
+-- Crear la tabla de productos
+CREATE TABLE productos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    precio DECIMAL(10, 2) NOT NULL,
+    imagen VARCHAR(255) NOT NULL,
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+-- Insertar datos iniciales de prueba para verificar la carga al inicio
+INSERT INTO productos (nombre, descripcion, precio, imagen) VALUES 
+('Teclado Mecánico RGB', 'Teclado gaming con switches rojos y retroiluminación personalizable.', 79.99, 'imagenes/teclado.jpg'),
+('Ratón Inalámbrico Ergonómico', 'Ratón óptico de alta precisión con batería de larga duración.', 34.50, 'imagenes/raton.jpg'),
+('Monitor 27" 144Hz', 'Monitor IPS Full HD ideal para gaming y diseño gráfico.', 219.00, 'imagenes/monitor.jpg'),
+('Auriculares con Cancelación de Ruido', 'Sonido envolvente con micrófono integrado.', 59.95, 'imagenes/auriculares.jpg');
