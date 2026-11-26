@@ -1,0 +1,27 @@
+[
+    {
+        "nombre": "Ordenador portátil",
+        "precio": 750,
+        "url_imagen": "imagenes/portatil.jpg"
+    },
+    {
+        "nombre": "Ratón inalámbrico",
+        "precio": 25,
+        "url_imagen": "imagenes/raton.jpg"
+    },
+    {
+        "nombre": "Teclado mecánico",
+        "precio": 60,
+        "url_imagen": "imagenes/teclado.jpg"
+    },
+    {
+        "nombre": "Monitor",
+        "precio": 180,
+        "url_imagen": "imagenes/monitor.jpg"
+    },
+    {
+        "nombre": "Ordenador sobremesa",
+        "precio": 900,
+        "url_imagen": "imagenes/sobremesa.jpg"
+    }
+]
